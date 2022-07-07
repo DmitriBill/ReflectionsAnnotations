@@ -37,12 +37,12 @@ public class Serialization {
         String[] pairs = s.split(";");
 
         for (String pair : pairs) {
-            String[] nv = pair.split("=");
-            if (nv.length != 2) {
+            String[] ser = pair.split("=");
+            if (ser.length != 2) {
                 throw new InvalidParameterException(s);
             }
-            String name = nv[0];
-            String value = nv[1];
+            String name = ser[0];
+            String value = ser[1];
             Field field = cls.getDeclaredField(name);
 
             if (Modifier.isPrivate(field.getModifiers())) {
